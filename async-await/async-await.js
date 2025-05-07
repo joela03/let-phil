@@ -21,19 +21,17 @@
 // This function uses async/await to fetch a random user from the API and display it in the browser
 
 async function fetchUser() {
+    try {
+        const response = await fetch("https://randomuser.me/api/");
 
-    try {const response = await fetch("https://randomuser.me/api/");
+        if (!response.ok) throw new Error();
+        
+        const data = await response.json();
 
-    if (!response.ok) throw new Error();
-    
-    const data = await response.json();
+        const output = document.getElementById("output");
 
-    const output = document.getElementById("output");
-
-    output.textContent = JSON.stringify(data, null, 2);
+        output.textContent = JSON.stringify(data, null, 2);
     } catch (error) {
-        console.error(error)
-    }
+        console.error(error);
+    };
 }
-
-fetchUser();
