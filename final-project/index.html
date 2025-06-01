@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Habit Tracker</h1>
+        <nav>
+            <ul>
+                <li>Contact Form</li>
+                <li><a href="/calendar.html">Streak Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="welcome">
+            <div id="message"> Welcome Back</div>
+            <div id="quote">
+                <article id="quote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales, lectus non mollis fermentum, enim nibh tincidunt diam, a lacinia urna tortor et tellus. Integer dapibus convallis lacus, vitae tempor tortor vehicula non.</article>
+                <button id="refresh-btn">Refresh Quote</button>
+            </div>
+            
+        </section>
+        <section id="add-habit-form">
+            <h2>Add New Habit</h2>
+            <input type="text" id="habit-input" placeholder="Enter your new habit..." maxlength="100">
+            <button id="add-btn" onclick="addHabit()">Add Habit</button>
+        </section>
+        <section id="habits">
+            <h1>Habits List</h1>
+            <ul>
+                <li> This is an example habit
+                    <div class="task-bt">
+                        <button> Completed </button>
+                        <button> Incomplete </button>
+                        <button> Edit </button>
+                    </div>
+                </li>
+                <li> Habit 2</li>
+                <li> Habit 3</li>
+                <li> Habit 4</li>
+            </ul>
+        </section>
+    </main>
+    <footer> Footer </footer>
+</body>
+</html>
