@@ -1,7 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     loadQuote();
 
-    document.getELementbyId("refresh-btn").addEventListener("click", loadQuote);
+    const refreshBtn = document.getElementById("refresh-btn");
+    refreshBtn.addEventListener("click", loadQuote);
 });
 
 async function fetchQuote() {
