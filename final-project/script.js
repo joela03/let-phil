@@ -99,10 +99,20 @@ function renderHabits(){
             <div class="task-bt">
                 <button>Completed</button>
                 <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
+                <button class="delete-btn" onclick="deleteHabit(${habit.id})">Delete</button>
             </div>
             `;
         
             habitsList.appendChild(li);
     });
 };
+
+function deleteHabit(habitId) {
+    if (confirm('Are you sure that you want to delete this habit?')) {
+        // Sets habits equal to all habits apart from the habit we clicked
+        habits = habits.filter(h => h.id !== habitId);
+        renderHabits();
+    }
+}
+
+
