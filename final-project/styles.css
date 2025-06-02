@@ -67,6 +67,12 @@ main section {
 #habits li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px;
+    border-left: 4px solid var(--primary);
 }
 
 footer {
