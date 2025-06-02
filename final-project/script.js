@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     loadQuote();
+    renderHabits();
 
     const refreshBtn = document.getElementById("refresh-btn");
     refreshBtn.addEventListener("click", loadQuote);
@@ -44,11 +45,6 @@ async function loadQuote() {
     quoteElement.textContent = `"${quote}" - ${author}`;
 }
 
-let habits = [
-            { id: 1, text: "This is an example habit", completed: false }
-        ];
-        let habitIdCounter = 2;
-
 
 function addHabit() {
             const input = document.getElementById('habit-input');
@@ -77,4 +73,36 @@ function addHabit() {
             // Clear input
             input.value = '';
             
+            // Updates habit list
+            renderHabits();
         }
+
+
+let habits = [
+            { id: 1, text: "This is an example habit", completed: false }
+        ];
+let habitIdCounter = 1;
+
+function renderHabits(){
+    // Sets Habit List content to empty
+    const habitsList = document.getElementById('habits-list');
+    habitsList.innerHTML = '';
+
+    // Creates new li for each habit in our habit list
+    habits.forEach(habit => {
+        const li = document.createElement('li');
+        li.className = `habit-item ${habit.completed ? 'completed' : ''}`;
+        li.setAttribute("data-id", habit.id);
+
+        li.innerHTML = `
+            <span class="habit-text">${habit.text}</span>
+            <div class="task-bt">
+                <button>Completed</button>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+            `;
+        
+            habitsList.appendChild(li);
+    });
+};
