@@ -98,7 +98,7 @@ function renderHabits(){
             <span class="habit-text">${habit.text}</span>
             <div class="task-bt">
                 <button>Completed</button>
-                <button class="edit-btn">Edit</button>
+                <button class="edit-btn" onclick="editHabit(${habit.id})">Edit</button>
                 <button class="delete-btn" onclick="deleteHabit(${habit.id})">Delete</button>
             </div>
             `;
@@ -115,4 +115,21 @@ function deleteHabit(habitId) {
     }
 }
 
+function editHabit(habitId) {
+    // Get current Habit Text
+    const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+    const habitElementText = habitElement.querySelector('.habit-text');
+    const currentText = habitElementText.textContent;
 
+    // Make new input field
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = currentText;
+    input.maxLength = 100;
+
+    habitElementText.innerHTML = '';
+    habitElementText.appendChild(input);
+
+    input.focus();
+    input.select();
+}
