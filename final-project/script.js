@@ -127,9 +127,44 @@ function editHabit(habitId) {
     input.value = currentText;
     input.maxLength = 100;
 
+    // Add input in place of Habit text
     habitElementText.innerHTML = '';
     habitElementText.appendChild(input);
 
     input.focus();
     input.select();
+
+    // Save on enter key
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            saveEdit(input, habitId);
+        }
+    });
+
+    // Save on click outside of box
+    input.addEventListener('blur', function(){
+        saveEdit(input, habitId);
+    });
+}
+    
+
+
+function saveEdit(input, habitId) {
+    const newText = input.value.trim();
+
+    // Ensure input is not empty
+    if (newText === ''){
+        alert('Habit cannot be empty!');
+        input.focus();
+        return;
+    }
+
+    // Update habits array
+    const habit = habits.find(h => h.id === habitId);
+    if (habit) {
+        habit.text = newText;
+    }
+
+    // Render new habit array
+    renderHabits();
 }
