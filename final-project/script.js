@@ -6,6 +6,15 @@ window.addEventListener('DOMContentLoaded', () => {
     refreshBtn.addEventListener("click", loadQuote);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    habitInput = document.getElementById('habit-input')
+    habitInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            addHabit();
+        }
+    });
+});
+
 async function fetchQuote() {
     const apiUrl = 'https://api.api-ninjas.com/v1/quotes';
     const headers = {
