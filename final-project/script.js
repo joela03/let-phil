@@ -104,9 +104,12 @@ function renderHabits(){
         li.setAttribute("data-id", habit.id);
 
         li.innerHTML = `
-            <span class="habit-text">${habit.text}</span>
+            <span class="habit-text ${habit.completed ? 'completed' : ''}">${habit.text}</span>
             <div class="task-bt">
-                <button>Completed</button>
+                <button class="${habit.completed ? 'incomplete' : 'complete'}"
+                    onclick="completeHabit(${habit.id})">
+                    ${habit.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                </button>
                 <button class="edit-btn" onclick="editHabit(${habit.id})">Edit</button>
                 <button class="delete-btn" onclick="deleteHabit(${habit.id})">Delete</button>
             </div>
@@ -156,8 +159,6 @@ function editHabit(habitId) {
     });
 }
     
-
-
 function saveEdit(input, habitId) {
     const newText = input.value.trim();
 
@@ -176,4 +177,12 @@ function saveEdit(input, habitId) {
 
     // Render new habit array
     renderHabits();
+}
+
+function completeHabit(habitId) {
+    const habit = habits.find(h => h.id === habitId);
+    if (habit) {
+        habit.completed = !habit.completed;
+        renderHabits();
+    }
 }
