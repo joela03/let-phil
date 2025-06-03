@@ -117,6 +117,15 @@ button {
     font-size: 16px;
 }
 
+ .completed {
+  color: gray;
+  opacity: 0.6;
+} 
+
+.completed span {
+    text-decoration: line-through;
+}
+
 footer {
     background-color: var(--footer);
     color: white;
