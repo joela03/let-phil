@@ -1,12 +1,12 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Quote Functionality
     loadQuote();
     renderHabits();
 
     const refreshBtn = document.getElementById("refresh-btn");
     refreshBtn.addEventListener("click", loadQuote);
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Habit Functionality
     habitInput = document.getElementById('habit-input')
     habitInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
