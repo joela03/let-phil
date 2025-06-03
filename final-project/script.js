@@ -87,16 +87,21 @@ function addHabit() {
         }
 
 
-let habits = [
-            { id: 1, text: "This is an example habit", completed: false }
-        ];
-let habitIdCounter = 1;
+let habits = [];
+let habitIdCounter = habits.length + 1;
 
 function renderHabits(){
     // Sets Habit List content to empty
     const habitsList = document.getElementById('habits-list');
     habitsList.innerHTML = '';
 
+    // Prompts to add habit if no habits
+    if (habits.length === 0) {
+        const li = document.createElement('li');
+        li.innerHTML = '<span> Add a new habit above </span>'
+        habitsList.appendChild(li);
+        return
+    }
     // Creates new li for each habit in our habit list
     habits.forEach(habit => {
         const li = document.createElement('li');
