@@ -132,3 +132,32 @@ footer {
     padding: 1rem;
     text-align: center;
 }
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    background-color: var(--div-colour);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.form {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.form-input {
+    display: flex;
+    gap: 1rem;
+}
+
+.form .form-input {
+    flex: 1;
+}
