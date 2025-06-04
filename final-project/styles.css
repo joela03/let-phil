@@ -83,7 +83,7 @@ main section {
 }
 
 #add-habit-form h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #add-habit-form div {
@@ -108,7 +108,9 @@ main section {
     font-size: 16px;
     transition: border-color 0.2s ease;
 }
-
+#habits h1{
+    margin-bottom: 1rem;
+}
 #habits li {
     display: flex;
     justify-content: space-between;
