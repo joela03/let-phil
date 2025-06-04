@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Habit Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendar.html">Streak Calendar</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="success-message" id="success-message">
+                Lets keep in touch!
+            </div>
+            <form id="contact-form">
+                <div class="form">
+                    <div class="form-input">
+                        <label>First Name <span class="required">*</span></label>
+                        <input type="text" id="first-name" name="firstName" required>
+                    </div>
+                    <div class="form-input">
+                        <label>Last Name <span class="required">*</span></label>
+                        <input type="text" id="last-name" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-input">
+                    <label>Email Address <span class="required">*</span></label>
+                    <input id="email" required>
+                </div>
+                <div class="form">
+                    <label>Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                <div class="form">
+                    <label>Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer>Footer </footer>
+</body>
