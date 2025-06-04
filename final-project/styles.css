@@ -62,6 +62,24 @@ main section {
 
 #welcome #quote {
     display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+#refresh-btn {
+    flex-shrink: 0;
+    align-self: flex-start;
+    white-space: nowrap;
+}
+
+#quote-text {
+    flex: 1;
+    text-align: left;
+    margin-right: 1rem;
+    justify-content: center;
 }
 
 #add-habit-form div {
