@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Quote Functionality
     loadQuote();
+
+    // Initialise localstorage
+    initialiseLocalStorage();
+
+    // Render Habits
     renderHabits();
 
     const refreshBtn = document.getElementById("refresh-btn");
@@ -14,6 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function initialiseLocalStorage(){
+    if (!getAndParse("habits")){
+        setAndStringify("habits", []);
+    }
+    if (!getAndParse("habitIdCounter")){
+        setAndStringify("habitIdCounter", 1);
+    }
+    
+}
 
 async function fetchQuote() {
     const apiUrl = 'https://api.api-ninjas.com/v1/quotes';
@@ -68,17 +83,26 @@ function addHabit() {
                 alert('Habit text must be less than 100 characters!');
                 return;
             }
+
+            // Fetch data from local storage
+            const habits = getAndParse("habits");
+            const habitIdCounter = getAndParse("habitIdCounter");
+            
             
             // Create new habit object
             const newHabit = {
-                id: habitIdCounter++,
+                id: habitIdCounter,
                 text: habitText,
                 completed: false
             };
-            
+
             // Add to habits array
             habits.push(newHabit);
-            
+
+            // Set updated habits array in localStorage
+            setAndStringify("habits", habits);
+            setAndStringify("habitIdCounter", habitIdCounter + 1);
+
             // Clear input
             input.value = '';
             
@@ -86,21 +110,20 @@ function addHabit() {
             renderHabits();
         }
 
-
-let habits = [];
-let habitIdCounter = habits.length + 1;
-
 function renderHabits(){
     // Sets Habit List content to empty
     const habitsList = document.getElementById('habits-list');
     habitsList.innerHTML = '';
+    
+    // Fetches habits from local storage
+    const habits = getAndParse("habits");
 
     // Prompts to add habit if no habits
     if (habits.length === 0) {
         const li = document.createElement('li');
         li.innerHTML = '<span> Add a new habit above </span>'
         habitsList.appendChild(li);
-        return
+        return;
     }
     // Creates new li for each habit in our habit list
     habits.forEach(habit => {
@@ -122,12 +145,20 @@ function renderHabits(){
         
             habitsList.appendChild(li);
     });
+
+    console.log(localStorage.getItem('habits'))
 };
 
 function deleteHabit(habitId) {
+
+    const habits = getAndParse("habits");
+
     if (confirm('Are you sure that you want to delete this habit?')) {
         // Sets habits equal to all habits apart from the habit we clicked
-        habits = habits.filter(h => h.id !== habitId);
+        const updatedHabits = habits.filter(h => h.id !== habitId);
+
+        setAndStringify("habits", updatedHabits);
+
         renderHabits();
     }
 }
@@ -175,19 +206,41 @@ function saveEdit(input, habitId) {
     }
 
     // Update habits array
+    const habits = getAndParse("habits")
+
     const habit = habits.find(h => h.id === habitId);
     if (habit) {
         habit.text = newText;
     }
+
+    const updatedHabits = JSON.stringify(habits);
+    localStorage.setItem("habits", updatedHabits);
 
     // Render new habit array
     renderHabits();
 }
 
 function completeHabit(habitId) {
+    const habits = getAndParse("habits");
+
     const habit = habits.find(h => h.id === habitId);
+
     if (habit) {
         habit.completed = !habit.completed;
+
+        setAndStringify("habits", habits);
+        
         renderHabits();
     }
+}
+
+function setAndStringify(key, item){
+    const stringifiedData = JSON.stringify(item);
+    localStorage.setItem(key, stringifiedData);
+}
+
+function getAndParse(key){
+    const storedData = localStorage.getItem(key);
+    const parsedData = JSON.parse(storedData);
+    return parsedData
 }
