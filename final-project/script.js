@@ -271,7 +271,14 @@ function saveContactSubmission() {
     localStorage.setItem("contactSubmissions", JSON.stringify((submissions)))
 
     // Display success
-    document.getElementById("success-message").textContent = "Submission successful!";
+    const successMessage = document.getElementById("success-message");
+    successMessage.textContent = "Submission successful!";
+    successMessage.classList.add("show");
+
+    setTimeout(() => {
+        successMessage.classList.remove("show");
+    }, 5000);
+    
     document.getElementById("contact-form").reset();
 
     console.log(localStorage.getItem("contactSubmissions"));

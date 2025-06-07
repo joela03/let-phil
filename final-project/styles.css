@@ -263,7 +263,7 @@ form {
 
 .form-input input,
 .form-input select,
-textarea {
+.form textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1.5px solid #ccc;
@@ -275,7 +275,6 @@ textarea {
 
 textarea {
     min-height: 120px;
-    ;
     resize: vertical;
 }
 
@@ -293,6 +292,7 @@ button#submit {
 
 
 .success-message {
+    display: none;
     background-color: #dff0d8;
     color: #3c763d;
     padding: 1rem;
@@ -301,4 +301,8 @@ button#submit {
     font-weight: 600;
     border: 1px solid #b2d8b2;
     margin-bottom: 1rem;
+}
+
+.success-message.show {
+    display: block;
 }
