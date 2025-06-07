@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Habit Tracker</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -51,7 +52,7 @@
                     <label>Message <span class="required">*</span></label>
                     <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
                 </div>
-                <button type="submit">Send Message</button>
+                <button id="submit" type="button" onclick="saveContactSubmission()">Send Message</button>
             </form>
         </div>
     </main>

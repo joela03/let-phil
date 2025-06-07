@@ -244,3 +244,36 @@ function getAndParse(key){
     const parsedData = JSON.parse(storedData);
     return parsedData
 }
+
+function saveContactSubmission() {
+
+    // Get form inputs
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email= document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    // Store form data
+    const formData = {
+        firstName,
+        lastName,
+        email,
+        subject,
+        message,
+    };
+
+    // Fetch previous submissions from Local Storage
+    const submissions = JSON.parse(localStorage.getItem("contactSubmissions")) || [];
+
+    // Push submissions to previous and set in Local Storage
+    submissions.push(formData);
+    localStorage.setItem("contactSubmissions", JSON.stringify((submissions)))
+
+    // Display success
+    document.getElementById("success-message").textContent = "Submission successful!";
+    document.getElementById("contact-form").reset();
+
+    console.log(localStorage.getItem("contactSubmissions"));
+
+}
