@@ -59,8 +59,7 @@ main section {
 }
 
 #welcome #message {
-    background-color: ;
-    padding: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -68,17 +67,12 @@ main section {
 
 #welcome #quote {
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
+    align-items: center;
+    border-radius: 6px;
     margin-top: 1rem;
-}
-
-#refresh-btn {
-    flex-shrink: 0;
-    align-self: flex-start;
-    white-space: nowrap;
 }
 
 #quote-text {
@@ -86,6 +80,8 @@ main section {
     text-align: left;
     margin-right: 1rem;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #add-habit-form h2 {
@@ -114,9 +110,11 @@ main section {
     font-size: 16px;
     transition: border-color 0.2s ease;
 }
+
 #habits h1{
     margin-bottom: 1rem;
 }
+
 #habits li {
     display: flex;
     justify-content: space-between;
@@ -134,20 +132,14 @@ button {
     background-color: var(--primary);
     color: var(--secondary);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: 500;
-}
-
-#add-btn {
-    flex-shrink: 0;
-    padding: 1rem 2rem;
     font-weight: 500;
     font-size: 16px;
 }
 
- .completed {
+.completed {
   color: gray;
   opacity: 0.6;
 } 
@@ -305,7 +297,6 @@ textarea {
     padding-right: 5rem;
 }
 
-button[type="submit"],
 button#submit {
     align-self: center;
     background-color: var(--primary);
