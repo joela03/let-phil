@@ -255,10 +255,30 @@ label {
     }
 }
 
+.container h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
 form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-right: 2rem;
+}
+
+.form-input label,
+.form label{
+    font-size: 18px;
 }
 
 .form-input input,
@@ -268,7 +288,7 @@ form {
     padding: 0.75rem 1rem;
     border: 1.5px solid #ccc;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 14px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background-color: #fff;
 }
@@ -276,6 +296,7 @@ form {
 textarea {
     min-height: 120px;
     resize: vertical;
+    padding-right: 5rem;
 }
 
 button[type="submit"],
@@ -288,6 +309,8 @@ button#submit {
     padding: 0.75rem 2rem;
     border-radius: 8px;
     transition: background-color 0.3s ease;
+    margin: 1rem auto 0 auto;
+    display: block;
 }
 
 
