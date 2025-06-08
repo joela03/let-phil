@@ -15,6 +15,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, #message h2 {
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
@@ -54,6 +59,7 @@ main section {
 }
 
 #welcome #message {
+    background-color: ;
     padding: 1rem;
     text-align: center;
     font-size: 24px;
